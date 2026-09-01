@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_supplier_import_wizard_form" model="ir.ui.view">
+        <field name="name">supplier.import.wizard.form</field>
+        <field name="model">supplier.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Suppliers">
+                <group invisible="state != 'upload'">
+                    <p>
+                        Upload a .csv or .xlsx file with columns: Name, Internal Code,
+                        Tax PIN, Address, Contact Person, Telephone, Mobile, Fax, Email,
+                        Notes, Categories, Preferred Categories.
+                        Categories/Preferred Categories are comma-separated; write a
+                        sub-category as "Main &gt; Sub".
+                    </p>
+                    <field name="filename" invisible="1"/>
+                    <field name="file" filename="filename"/>
+                </group>
+                <group invisible="state != 'done'">
+                    <field name="created_count"/>
+                    <field name="updated_count"/>
+                    <field name="error_count"/>
+                    <field name="result_message"/>
+                </group>
+                <footer>
+                    <button name="action_import" string="Import" type="object" class="btn-primary" invisible="state != 'upload'"/>
+                    <button name="action_new_import" string="Import Another File" type="object" invisible="state != 'done'"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_supplier_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Suppliers</field>
+        <field name="res_model">supplier.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,90 @@
+<odoo>
+    <record id="view_supplier_supplier_list" model="ir.ui.view">
+        <field name="name">supplier.supplier.list</field>
+        <field name="model">supplier.supplier</field>
+        <field name="arch" type="xml">
+            <list string="Suppliers">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="category_names"/>
+                <field name="property_ids" widget="many2many_tags"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_supplier_supplier_form" model="ir.ui.view">
+        <field name="name">supplier.supplier.form</field>
+        <field name="model">supplier.supplier</field>
+        <field name="arch" type="xml">
+            <form string="Supplier">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="contact_person"/>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="fax"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                        <group>
+                            <field name="internal_code"/>
+                            <field name="tax_pin"/>
+                            <field name="active"/>
+                            <field name="property_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="address"/>
+                    </group>
+                    <notebook>
+                        <page string="Categories" name="categories">
+                            <field name="category_line_ids">
+                                <list editable="bottom">
+                                    <field name="category_id" options="{'no_create': True}"/>
+                                    <field name="is_preferred"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_supplier_supplier_search" model="ir.ui.view">
+        <field name="name">supplier.supplier.search</field>
+        <field name="model">supplier.supplier</field>
+        <field name="arch" type="xml">
+            <search string="Suppliers">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="tax_pin"/>
+                <field name="category_line_ids" string="Category"
+                       filter_domain="[('category_line_ids.category_id.complete_name', 'ilike', self)]"/>
+                <field name="property_ids"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <filter name="inactive" string="Archived" domain="[('active','=',False)]"/>
+                <group>
+                    <filter name="group_by_property" string="Property" context="{'group_by':'property_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_supplier_supplier" model="ir.actions.act_window">
+        <field name="name">Suppliers</field>
+        <field name="res_model">supplier.supplier</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_supplier_supplier_search"/>
+    </record>
+</odoo>

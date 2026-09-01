@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Real supplier data - contains contact info, tax PINs, addresses. Kept
+# local only, not pushed to GitHub.
+SUPPLIERS' LIST PER MDA 1(Sheet1).csv
+Vendor Categories(Vendor Panel).csv
+suppliers_import.csv
+migration_report.txt

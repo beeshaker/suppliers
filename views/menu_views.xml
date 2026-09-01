@@ -1,0 +1,31 @@
+<odoo>
+    <menuitem id="menu_suppliers_root"
+              name="Suppliers"
+              sequence="40"
+              groups="apricot_ticketing.group_ticketing_user,apricot_ticketing.group_ticketing_admin,apricot_ticketing.group_ticketing_super_admin"/>
+
+    <menuitem id="menu_suppliers_suppliers"
+              name="Suppliers"
+              parent="menu_suppliers_root"
+              action="action_supplier_supplier"
+              sequence="10"/>
+
+    <menuitem id="menu_suppliers_categories"
+              name="Categories"
+              parent="menu_suppliers_root"
+              action="action_supplier_category"
+              sequence="20"/>
+
+    <menuitem id="menu_suppliers_properties"
+              name="Properties"
+              parent="menu_suppliers_root"
+              action="apricot_ticketing.action_apricot_properties"
+              sequence="30"/>
+
+    <menuitem id="menu_suppliers_import"
+              name="Import"
+              parent="menu_suppliers_root"
+              action="action_supplier_import_wizard"
+              groups="apricot_ticketing.group_ticketing_admin,apricot_ticketing.group_ticketing_super_admin"
+              sequence="40"/>
+</odoo>

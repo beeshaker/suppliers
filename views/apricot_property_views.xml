@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_apricot_property_form_inherit_suppliers" model="ir.ui.view">
+        <field name="name">apricot.property.form.inherit.suppliers</field>
+        <field name="model">apricot.property</field>
+        <field name="inherit_id" ref="apricot_ticketing.view_apricot_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_suppliers" type="object" class="oe_stat_button" icon="fa-truck">
+                    <field name="supplier_count" widget="statinfo" string="Suppliers"/>
+                </button>
+            </xpath>
+            <xpath expr="//group[field[@name='notes']]" position="after">
+                <group string="Suppliers">
+                    <field name="supplier_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

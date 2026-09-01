@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_supplier_supplier_user,supplier.supplier user,model_supplier_supplier,apricot_ticketing.group_ticketing_user,1,0,0,0
+access_supplier_supplier_admin,supplier.supplier admin,model_supplier_supplier,apricot_ticketing.group_ticketing_admin,1,1,1,0
+access_supplier_supplier_super,supplier.supplier super,model_supplier_supplier,apricot_ticketing.group_ticketing_super_admin,1,1,1,1
+access_supplier_category_user,supplier.category user,model_supplier_category,apricot_ticketing.group_ticketing_user,1,0,0,0
+access_supplier_category_admin,supplier.category admin,model_supplier_category,apricot_ticketing.group_ticketing_admin,1,1,1,0
+access_supplier_category_super,supplier.category super,model_supplier_category,apricot_ticketing.group_ticketing_super_admin,1,1,1,1
+access_supplier_category_line_user,supplier.category.line user,model_supplier_category_line,apricot_ticketing.group_ticketing_user,1,0,0,0
+access_supplier_category_line_admin,supplier.category.line admin,model_supplier_category_line,apricot_ticketing.group_ticketing_admin,1,1,1,0
+access_supplier_category_line_super,supplier.category.line super,model_supplier_category_line,apricot_ticketing.group_ticketing_super_admin,1,1,1,1
+access_supplier_import_wizard_admin,supplier.import.wizard admin,model_supplier_import_wizard,apricot_ticketing.group_ticketing_admin,1,1,1,1
+access_supplier_import_wizard_super,supplier.import.wizard super,model_supplier_import_wizard,apricot_ticketing.group_ticketing_super_admin,1,1,1,1
