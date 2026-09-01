@@ -43,7 +43,7 @@
                     <notebook>
                         <page string="Categories" name="categories">
                             <field name="category_line_ids">
-                                <list editable="bottom">
+                                <list editable="bottom" decoration-success="is_preferred">
                                     <field name="category_id" options="{'no_create': True}"/>
                                     <field name="is_preferred"/>
                                 </list>
@@ -74,6 +74,7 @@
                 <field name="property_ids"/>
                 <filter name="active" string="Active" domain="[('active','=',True)]"/>
                 <filter name="inactive" string="Archived" domain="[('active','=',False)]"/>
+                <filter name="preferred" string="Preferred / Approved Panel" domain="[('category_line_ids.is_preferred', '=', True)]"/>
                 <group>
                     <filter name="group_by_property" string="Property" context="{'group_by':'property_ids'}"/>
                 </group>

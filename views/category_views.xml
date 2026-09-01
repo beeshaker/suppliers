@@ -30,7 +30,7 @@
                     <notebook>
                         <page string="Suppliers" name="suppliers">
                             <field name="category_line_ids">
-                                <list editable="bottom">
+                                <list editable="bottom" decoration-success="is_preferred">
                                     <field name="supplier_id" options="{'no_create': True}"/>
                                     <field name="is_preferred"/>
                                 </list>
@@ -40,6 +40,21 @@
                 </sheet>
                 <chatter/>
             </form>
+        </field>
+    </record>
+
+    <record id="view_supplier_category_line_list" model="ir.ui.view">
+        <field name="name">supplier.category.line.list</field>
+        <field name="model">supplier.category.line</field>
+        <field name="arch" type="xml">
+            <list string="Suppliers" editable="bottom" decoration-success="is_preferred">
+                <field name="supplier_id" options="{'no_create': True}"/>
+                <field name="supplier_phone"/>
+                <field name="supplier_mobile"/>
+                <field name="supplier_email"/>
+                <field name="is_preferred"/>
+                <field name="category_id" column_invisible="1"/>
+            </list>
         </field>
     </record>
 

@@ -46,7 +46,8 @@ class SupplierCategory(models.Model):
         return {
             "type": "ir.actions.act_window",
             "name": "Suppliers",
-            "res_model": "supplier.supplier",
-            "view_mode": "list,form",
-            "domain": [("category_line_ids.category_id", "=", self.id)],
+            "res_model": "supplier.category.line",
+            "view_mode": "list",
+            "domain": [("category_id", "=", self.id)],
+            "context": {"default_category_id": self.id},
         }
