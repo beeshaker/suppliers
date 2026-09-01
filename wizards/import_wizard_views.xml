@@ -4,7 +4,7 @@
         <field name="model">supplier.import.wizard</field>
         <field name="arch" type="xml">
             <form string="Import Suppliers">
-                <group invisible="state != 'upload'">
+                <div invisible="state != 'upload'">
                     <p>
                         Upload a .csv or .xlsx file with columns: Name, Internal Code,
                         Tax PIN, Address, Contact Person, Telephone, Mobile, Fax, Email,
@@ -12,9 +12,11 @@
                         Categories/Preferred Categories are comma-separated; write a
                         sub-category as "Main &gt; Sub".
                     </p>
-                    <field name="filename" invisible="1"/>
-                    <field name="file" filename="filename"/>
-                </group>
+                    <group>
+                        <field name="filename" invisible="1"/>
+                        <field name="file" filename="filename"/>
+                    </group>
+                </div>
                 <group invisible="state != 'done'">
                     <field name="created_count"/>
                     <field name="updated_count"/>
